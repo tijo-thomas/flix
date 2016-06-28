@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe "Viewing the list of movies" do #this is an example group that groups a set of related code examples.
+describe "Viewing the list of movies" do # this is an example group that groups a set of related code examples.
 	it "shows the movies" do
-		
+
 		movie1 = Movie.create(title: "Iron Man",
 													rating: "PG-13",
 													total_gross: 318412101.00,
@@ -33,5 +33,4 @@ describe "Viewing the list of movies" do #this is an example group that groups a
 		expect(page).to have_text(movie1.released_on)
 		expect(page).to have_text("$318,412,101.00")
 	end
-	
 end
