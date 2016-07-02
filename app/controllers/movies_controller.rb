@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
 
 	private
 
-		# Returns a new hash that includes only the permitted attributes. The .require method will rais an exception if the given key ':movie' in this case iisn't found in the params object.
+		# Returns ga new hash that includes only the permitted attributes. The .require method will rais an exception if the given key ':movie' in this case iisn't found in the params object.
 		def movie_params
 			params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image_file_name)
 		end
