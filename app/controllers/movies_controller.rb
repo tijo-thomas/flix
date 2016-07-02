@@ -19,4 +19,8 @@ class MoviesController < ApplicationController
 		redirect_to movie_path(@movie.id) # This redirects to the show action using a named route.
 	end
 
+	def new
+		@movie = Movie.new
+	end
+
 end
