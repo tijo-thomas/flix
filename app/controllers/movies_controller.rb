@@ -28,6 +28,12 @@ class MoviesController < ApplicationController
 		redirect_to movie_path(@movie.id)
 	end
 
+	def destroy
+		@movie = Movie.find(params[:id])
+		@movie.destroy
+		redirect_to movies_path
+	end
+
 	private
 
 		# Returns a new hash that includes only the permitted attributes. The .require method will rais an exception if the given key ':movie' in this case iisn't found in the params object.
