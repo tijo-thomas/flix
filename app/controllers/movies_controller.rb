@@ -14,7 +14,6 @@ class MoviesController < ApplicationController
 
 	def update
 		@movie = Movie.find(params[:id])
-		movie_params = params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross) # Returns a new hash that includes only the permitted attributes. The .require method will raise an exception if the given key ':movie' in this case isn't found in the params object.
 		@movie.update(movie_params)
 		redirect_to movie_path(@movie.id) # This redirects to the show action using a named route.
 	end
@@ -24,10 +23,15 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		movie_params = params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross)
 		@movie = Movie.new(movie_params)
 		@movie.save
 		redirect_to movie_path(@movie.id)
 	end
 
+	private
+
+		# Returns a new hash that includes only the permitted attributes. The .require method will rais an exception if the given key ':movie' in this case iisn't found in the params object.
+		def movie_params
+			params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross)
+		end
 end
