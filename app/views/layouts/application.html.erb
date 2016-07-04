@@ -10,17 +10,8 @@
 		<%= render "layouts/header" %>
 
 		<div id="wrapper">
-			<!-- If ther is a flash notice display it with the proper styling. -->
-			<% if flash[:notice] %>
-				<p class="flash notice">
-					<%= flash[:notice] %>
-				</p>
-			<% end %>
-			<% if flash[:alert] %>
-				<p class="flash alert">
-					<%= flash[:alert] %>
-				</p>
-			<% end %>
+			<!-- Renders flash partial that accounts for all types(notice, alert, etc.). -->
+			<%= render "layouts/flashes" %>
 			<div id="container">
 				<section id="sidebar">
 					<%= render "layouts/sidebar" %>
