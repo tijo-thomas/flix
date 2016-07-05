@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+	has_many :reviews
 
 	validates :title, :released_on, :duration, presence: true
 	validates :description, length: { minimum: 25 }
