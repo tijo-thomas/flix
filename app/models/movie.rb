@@ -1,5 +1,4 @@
 class Movie < ActiveRecord::Base
-	has_many :reviews dependent: :destroy
 
 	validates :title, :released_on, :duration, presence: true
 	validates :description, length: { minimum: 25 }
@@ -12,6 +11,7 @@ class Movie < ActiveRecord::Base
 	RATINGS = %w(G PG PG-13 R NC-17) 
 	validates :rating, inclusion: { within: RATINGS }
 
+	has_many :reviews, dependent: :destroy
 
 	def flop?
 		total_gross.blank? || total_gross < 50000000
