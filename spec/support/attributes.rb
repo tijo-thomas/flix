@@ -12,5 +12,13 @@ def movie_attributes(overrides = {})
   }.merge(overrides)
 end
 
+def review_attributes(overrides = {})
+  {
+    name: "Roger Ebert",
+    stars: 3,
+    comment: "I laughed, I cried, I spilled my popcorn!"
+  }.merge(overrides)
+end
+
 # calling this method without any parameters simply returns the hash of attribute names and values
 # the added default hash parameter allows any of the attribute values to be overridden
