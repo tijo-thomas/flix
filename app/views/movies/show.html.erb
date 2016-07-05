@@ -28,6 +28,11 @@
     <%= format_total_gross(@movie) %>
   </p>
 
+  <h3>Reviews</h3>
+  <p>
+    <%= link_to(pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie.id)) %>
+  </p>
+
   <footer>
     <nav>
       <%= link_to("Edit", edit_movie_path(@movie.id), class: "button") %>
