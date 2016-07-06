@@ -4,6 +4,7 @@
 
 <!-- Generating a nested resource form needs both the parent(@movie) and child(@review) objects. -->
 <%= form_for([@movie, @review]) do |f| %>
+<%= render "shared/errors", object: @review %>
 	<fieldset>
 		<ol>
 			<li class="required">
