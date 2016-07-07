@@ -33,7 +33,13 @@ class Movie < ActiveRecord::Base
 		order("created_at desc").limit(3)
 	end
 
+	# Returns the average review score for the movie.
 	def average_stars
 		reviews.average(:stars)
+	end
+
+	# Returns the 2 most recently posted reviews for the movie.
+	def recent_reviews
+		reviews.order("created_at desc").limit(2)
 	end
 end
