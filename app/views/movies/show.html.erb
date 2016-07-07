@@ -33,6 +33,11 @@
     <%= link_to(pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie.id)) %>
   </p>
 
+  <h3>Average Review</h3>
+  <p>
+    <%= format_average_stars(@movie) %>
+  </p>
+
   <footer>
     <nav>
       <%= link_to("Edit", edit_movie_path(@movie.id), class: "button") %>
