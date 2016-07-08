@@ -22,3 +22,12 @@ end
 
 # calling this method without any parameters simply returns the hash of attribute names and values
 # the added default hash parameter allows any of the attribute values to be overridden
+
+def user_attributes(overrides = {})
+  {
+    name: "Example User",
+    email: "user@example.com",
+    password: "secret",
+    password_confirmation: "secret"
+  }.merge(overrides)
+end
