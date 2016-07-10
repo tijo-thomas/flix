@@ -13,9 +13,4 @@ describe "Viewing the list of users" do
     expect(page).to have_link(user2.name)
     expect(page).to have_link(user3.name)
   end
-
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 70ea45cc1287985c9ad18fd0f3ddd390b5d32640
