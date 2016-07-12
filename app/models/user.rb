@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   									format: { with: /\A\S+@\S+\z/ },
   									uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 10, allow_blank: true } # The 'allow_blank: true' is important since a password isn't required when a user updates his name and/or email. Also, the :password is a virtual attribute since the database column is password_digest.
+  validates :username, presence: true,
+  											format { with: /\A[A-Z0-9]+\z/i },
+  											uniqueness: { case_sensitive: false }
 end
