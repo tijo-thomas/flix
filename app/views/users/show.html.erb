@@ -6,6 +6,10 @@
 	<footer>
 		<nav>
 			<%= link_to("Edit Account", edit_user_path(@user.id), class: "button") %>
+			<%= link_to("Delete Account", user_path(@user.id),
+									class: "button",
+									method: :delete,
+									data: { confirm: "Are you sure you want to permanently delete your account?" }) %>
 		</nav>
 	</footer>
 </article>
