@@ -20,7 +20,12 @@
 			</li>
 		</ol>
 		<p>
-			<%= f.submit %>
+			<!-- Will return true if record hasn't already been saved to database. The .new_record? is built in rails method. -->
+			<% if @user.new_record? %> 
+				<%= f.submit "Create Account" %>
+			<% else %>
+				<%= f.submit "Update Account" %>
+			<% end %>
 		</p>
 	</fieldset>
 <% end %>
