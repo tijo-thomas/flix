@@ -24,15 +24,18 @@
 					to fill in for the field. The 'nil' parameter
 					is so the field does not have anything pre-filled.
 				-->
-				<%= email_field_tag :email, nil, autofocus: true, size: 40 %>
+				<%= email_field_tag :email, nil, autofocus: true, size: 40, required: true %>
 			</li>
 			<li class="required">
 				<%= label_tag :password %>
-				<%= password_field_tag :password, nil, size: 40 %>
+				<%= password_field_tag :password, nil, size: 40, required: true %>
 			</li>
 		</ol>
 		<p>
 			<%= submit_tag "Sign In" %>
+		</p>
+		<p>
+			No account yet? <%= link_to("Sign up!", signup_path) %>
 		</p>
 	</fieldset>
 <% end %>
