@@ -1,5 +1,5 @@
 <header>
-	<h1>Sign Up</h1>
+	<h1>Sign In</h1>
 </header>
 
 <!-- 
@@ -17,14 +17,14 @@
 				 	to be displayed(which defaults to the
 				 	capitalized form of the name.
 				-->
-				<%= label_tag :email, autofocus: true, size: 40 %>
+				<%= label_tag :email %>
 				<!-- 
 					The 'email_field_tag' accepts 2 parameters,
 					the name to give the field and the value
 					to fill in for the field. The 'nil' parameter
 					is so the field does not have anything pre-filled.
 				-->
-				<%= email_field_tag :email, nil %>
+				<%= email_field_tag :email, nil, autofocus: true, size: 40 %>
 			</li>
 			<li class="required">
 				<%= label_tag :password %>
