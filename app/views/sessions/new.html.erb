@@ -1,0 +1,38 @@
+<header>
+	<h1>Sign Up</h1>
+</header>
+
+<!-- 
+	This form does not map to a model object,
+	so we need to use the 'form_tag' helper,
+	instead of 'form_for'.
+-->
+<%= form_tag(session_path) do %> 
+	<fieldset>
+		<ol>
+			<li class="required">
+				<!-- 
+					The 'label_tag' accepts 2 parameters,
+				 	the name of the field and the label
+				 	to be displayed(which defaults to the
+				 	capitalized form of the name.
+				-->
+				<%= label_tag :email, autofocus: true, size: 40 %>
+				<!-- 
+					The 'email_field_tag' accepts 2 parameters,
+					the name to give the field and the value
+					to fill in for the field. The 'nil' parameter
+					is so the field does not have anything pre-filled.
+				-->
+				<%= email_field_tag :email, nil %>
+			</li>
+			<li class="required">
+				<%= label_tag :password %>
+				<%= password_field_tag :password, nil, size: 40 %>
+			</li>
+		</ol>
+		<p>
+			<%= submit_tag "Sign In" %>
+		</p>
+	</fieldset>
+<% end %>
