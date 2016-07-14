@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		session[:user_id] = @user.id # Auto signs in user after creating the account.
 		if @user.save
 			redirect_to user_path(@user.id), notice: "Thanks for signing up!"
 		else
