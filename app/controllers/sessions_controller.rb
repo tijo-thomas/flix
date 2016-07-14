@@ -12,8 +12,9 @@ class SessionsController < ApplicationController
 	# conditional to check whether the user was authenticated
 	# or not.
 	def create
-		user = User.find_by(email: params[:email])
-		if user && user.authenticate(params[:password])
+		# Calls the class level 'authenticate' method in the
+		# User model.
+		if user = User.authenticate(params[:email], params[:password])
 			session[:user_id] = user.id
 			flash[:notice] = "Welcome back, #{user.name}!"
 			redirect_to user_path(user.id)
