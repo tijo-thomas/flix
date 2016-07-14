@@ -8,7 +8,7 @@
 				application_helper.rb file to get the
 				current user from the database.
 				-->
-				<%= current_user.name %>
+				<%= link_to(current_user.name, user_path(current_user.id)) %>
 				<%= link_to("Sign Up", signup_path, class: "button") %>
 				<%= link_to("Sign In", signin_path, class: "button") %>
 			</p>
