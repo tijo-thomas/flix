@@ -3,9 +3,9 @@ require 'rails_helper'
 describe "Viewing the list of users" do
 
   it "shows the users" do
-    user1 = User.create!(user_attributes(name: "Larry", email: "larry@example.com"))
-    user2 = User.create!(user_attributes(name: "Moe",   email: "moe@example.com"))
-    user3 = User.create!(user_attributes(name: "Curly", email: "curly@example.com"))
+    user1 = User.create!(user_attributes(name: "Larry", email: "larry@example.com", username: "larryflix"))
+    user2 = User.create!(user_attributes(name: "Moe",   email: "moe@example.com", username: "moeflix"))
+    user3 = User.create!(user_attributes(name: "Curly", email: "curly@example.com", username: "curlyflix"))
 
     visit users_url
 
