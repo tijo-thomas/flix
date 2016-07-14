@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   											format: { with: /\A[A-Z0-9]+\z/i },
   											uniqueness: { case_sensitive: false }
 
+ 	# Passes in the email and password parameters to find
+ 	# the user and then calls the authenticate method
+ 	# provided by has_secure_password
   def self.authenticate(email, password)
   	user = User.find_by(email: email)
   	user && user.authenticate(password)
