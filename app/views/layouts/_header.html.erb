@@ -3,8 +3,12 @@
 		<h1><%= link_to("Flix", root_path) %></h1>
 		<nav>
 			<p>
-				<!-- User session hash and it's user_id key to display the name of the signed in user. -->
-				<%= User.find(session[:user_id]).name %>
+				<!-- 
+				Calls the current_user method from the
+				application_helper.rb file to get the
+				current user from the database.
+				-->
+				<%= current_user.name %>
 				<%= link_to("Sign Up", signup_path, class: "button") %>
 				<%= link_to("Sign In", signin_path, class: "button") %>
 			</p>
