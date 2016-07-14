@@ -7,7 +7,7 @@ describe "Signing in" do
 
     click_link 'Sign In'
 
-    expect(current_path).to eq(new_session_path)
+    expect(current_path).to eq(signin_path)
 
     expect(page).to have_field("Email")
     expect(page).to have_field("Password")
