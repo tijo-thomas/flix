@@ -9,8 +9,9 @@
 				current user from the database.
 				-->
 				<% if current_user %>
-					<%= link_to(current_user.name, user_path(current_user.id)) %> | 
-					<%= link_to("Account Settings", edit_user_path(current_user.id)) %>
+					<%= link_to(current_user.name, user_path(current_user.id)) %>
+					<%= link_to("Account Settings", edit_user_path(current_user.id), class: "button") %>
+					<%= link_to("Sign Out", session_path(current_user.id), method: :delete, class: "button") %>
 				<% else %>
 					<%= link_to("Sign Up", signup_path, class: "button") %>
 					<%= link_to("Sign In", signin_path, class: "button") %>
