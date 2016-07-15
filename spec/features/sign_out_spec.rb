@@ -5,6 +5,8 @@ describe "Signing out" do
   it "removes the user id from the session" do
     user = User.create!(user_attributes)
 
+    # Calls the sign_in method that defines the sign in
+    # steps. the method is in the authentication.rb file.
     sign_in(user)
 
     click_link 'Sign Out'
