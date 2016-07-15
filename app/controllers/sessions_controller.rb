@@ -30,4 +30,11 @@ class SessionsController < ApplicationController
 		end
 	end
 
+	# To sign out the user, all we do is remove their user id
+	# from the session hash so set the user_id key to nil.
+	def destroy
+		session[:user_id] = nil
+		redirect_to root_url, notice: "You're now signed out!"
+	end
+
 end
