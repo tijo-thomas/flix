@@ -66,7 +66,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "cannot destroy another user" do
-        delete :destroy, params { id: @user }
+        delete :destroy, params: { id: @user }
 
         expect(response).to redirect_to(root_url)
       end
