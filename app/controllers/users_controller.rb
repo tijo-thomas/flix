@@ -50,4 +50,15 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name, :email, :username, :password, :password_confirmation)
 	end
+
+	# Finds the user being accessed and compares it to the
+	# currently signed in user. If they are not the same,
+	# the sign in is user is denied access by redirecting
+	# to the application home page.
+	def require_correct_user
+		@user = User.find(params[:id])
+		unless current_user == @user
+			redirect_to root_url
+		end
+	end
 end
