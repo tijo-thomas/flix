@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
   # web accessible action.
   def require_signin
   	unless current_user
+      # Stores the URL of the requested page in the session
+      # before redirecting to the sign-in form.
+      session[:intended_url] = request.url 
   		redirect_to new_session_url, alert: "Please sign in first!"
   	end
   end
