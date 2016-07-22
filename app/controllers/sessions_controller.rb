@@ -17,7 +17,12 @@ class SessionsController < ApplicationController
 		if user = User.authenticate(params[:email], params[:password])
 			session[:user_id] = user.id
 			flash[:notice] = "Welcome back, #{user.name}!"
-			redirect_to user_path(user.id)
+			# Once user has signed in, redirect to URL stored in
+			# session if one exists or to user's profile if no
+			# URL in session hash. Remove URL from session after
+			# redirect.
+			redirect_to(session[:intended_url] || user_path(user.id))
+			session[:intended_url] = nil
 		else
 			# We use 'flash.now' because it is not coming before
 			# a redirect request. Flashes by default get picked
