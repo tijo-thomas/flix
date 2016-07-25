@@ -8,10 +8,9 @@ describe "Deleting a user" do
     admin = User.create!(user_attributes(admin: true))
     sign_in(admin)
   end
+
   it "destroys the user and redirects to the home page" do
     user = User.create!(user_attributes)
-
-    sign_in(user)
 
     visit user_path(user)
 
@@ -27,8 +26,6 @@ describe "Deleting a user" do
 
   it "automatically signs out that user" do
     user = User.create!(user_attributes)
-
-    sign_in(user)
 
     visit user_path(user)
 
