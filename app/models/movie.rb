@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
 	validates :rating, inclusion: { within: RATINGS }
 
 	has_many :favorites, dependent: :destroy
+	has_many :fans, through: :favorites, source: :user
 	has_many :reviews, dependent: :destroy
 
 	def flop?
