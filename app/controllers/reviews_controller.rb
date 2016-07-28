@@ -12,6 +12,8 @@ class ReviewsController < ApplicationController
 
 	def create
 		@review = @movie.reviews.new(review_params)
+		# Calls the current_user and assigns it to the review's user attribute.
+		@review.user = current_user
 		if @review.save
 			redirect_to movie_reviews_path(@movie), notice: "Thanks for your review!"
 		else
