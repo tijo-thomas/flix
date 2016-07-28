@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		# Accesses the user's review data because of the has_many :review association in User model.
+		@reviews = @user.reviews
 	end
 
 	def edit
