@@ -11,6 +11,7 @@ class Movie < ActiveRecord::Base
 	RATINGS = %w(G PG PG-13 R NC-17) 
 	validates :rating, inclusion: { within: RATINGS }
 
+	has_many :favorites, dependent: :destroy
 	has_many :reviews, dependent: :destroy
 
 	def flop?
