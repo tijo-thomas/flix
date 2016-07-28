@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 
 	# Returns a new hash that includes only the permitted attributes. The .require method will raise an exception if the given key ':review' in this case isn't found in the params object.
 	def review_params
-		params.require(:review).permit(:name, :comment, :stars)
+		params.require(:review).permit(:comment, :stars)
 	end
 
 	def set_movie
