@@ -13,6 +13,11 @@
     <%= @movie.rating %> &bull; <%= @movie.duration %>
   </h3>
 
+  <!-- 
+    The content_for method take a symbol which is an arbitraty identifier for the content so you can
+    refer to it later. This just stores the content
+    of the block for later use.
+   -->
   <% content_for(:sidebar_extras) do %>
     <% if @fans.any? %>
       <h3><%= pluralize(@fans.size, "fan") %></h3>
