@@ -27,4 +27,14 @@ describe "Viewing a user's profile page" do
   	end
   end
 
+  it "includes the user's name in the page title" do
+  	user = User.create!(user_attributes)
+
+  	sign_in(user)
+
+  	visit user_url(user)
+
+  	expect(page).to have_title("Flix - #{user.name}")
+  end
+
 end
