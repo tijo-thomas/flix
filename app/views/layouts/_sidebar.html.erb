@@ -11,4 +11,10 @@
 			<% end %>
 		</ul>
 	</nav>
+	<!-- 
+		This displays the content that was stored using
+		the content_for helper method from the movie show
+		template.
+	 -->
+	<%= content_for(:sidebar_extras) %>
 </aside>
