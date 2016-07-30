@@ -13,4 +13,18 @@ describe "Viewing a user's profile page" do
     expect(page).to have_text(user.email)
   end
 
+  it "shows the user's favorites in the sidebar" do
+  	user = User.create!(user_attributes)
+  	movie = Movie.create!(movie_attributes)
+  	user.favorite_movies << movie
+
+  	sign_in(user)
+
+  	visit user_url(user)
+
+  	within("aside#sidebar") do
+  		expect(page).to have_text(movie.title)
+  	end
+  end
+
 end
