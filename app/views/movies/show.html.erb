@@ -13,15 +13,17 @@
     <%= @movie.rating %> &bull; <%= @movie.duration %>
   </h3>
 
-  <% if @fans.any? %>
-    <h3><%= pluralize(@fans.size, "fan") %></h3>
-    <ul>
-      <% @fans.each do |user| %>
-        <li>
-          <%= link_to(user.name, user_path(user.id)) %>
-        </li>
-      <% end %>
-    </ul>
+  <% content_for(:sidebar_extras) do %>
+    <% if @fans.any? %>
+      <h3><%= pluralize(@fans.size, "fan") %></h3>
+      <ul>
+        <% @fans.each do |user| %>
+          <li>
+            <%= link_to(user.name, user_path(user.id)) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 
   <% if current_user %>
