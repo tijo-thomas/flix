@@ -5,7 +5,7 @@ module ApplicationHelper
 	# returned from content_for, otherwise the content_for
 	# just displays "Flix" as the page title.
 	def page_title
-		if content_for?
+		if content_for?(:title)
 			"Flix - #{content_for(:title)}"
 		else
 			"Flix"
