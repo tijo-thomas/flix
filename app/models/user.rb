@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   											format: { with: /\A[A-Z0-9]+\z/i },
   											uniqueness: { case_sensitive: false }
 
+  scope :by_name, -> { order(name: :asc) }
+  scope :not_admins, -> { by_name.where(admin: false) }
+
  	# Passes in the email and password parameters to find
  	# the user and then calls the authenticate method
  	# provided by has_secure_password
