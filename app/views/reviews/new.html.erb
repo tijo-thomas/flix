@@ -1,5 +1,5 @@
 <header id="content-header">
-	<h1>New Review for <%= link_to(@movie.title, movie_path(@movie.id)) %></h1>
+	<h1>New Review for <%= link_to(@movie.title, movie_path(@movie)) %></h1>
 </header>
 
 <!-- Generating a nested resource form needs both the parent(@movie) and child(@review) objects. -->
@@ -22,7 +22,7 @@
 		</ol>
 		<p>
 			<%= f.submit "Post Review" %>
-			<%= link_to("Cancel", movie_path(@movie.id), class: "button") %>
+			<%= link_to("Cancel", movie_path(@movie), class: "button") %>
 		</p>
 	</fieldset>
 <% end %>
