@@ -2,7 +2,13 @@
 	<nav>
 		<ul>
 			<li class="all-movies">
-				<%= link_to("All Movies", movies_path, class: "button") %>
+				<%= link_to("Released", movies_path, class: "button") %>
+			</li>
+			<li class="all-movies">
+				<%= link_to("Hits", filtered_movies_path(:hits), class: "button") %>
+			</li>
+			<li class="all-movies">
+				<%= link_to("Flops", filtered_movies_path(:flops), class: "button") %>
 			</li>
 			<% if current_user_admin? %>
 				<li class="create-movie">
