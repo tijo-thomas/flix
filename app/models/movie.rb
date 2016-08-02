@@ -60,6 +60,6 @@ class Movie < ActiveRecord::Base
 	end
 
 	def to_param
-		"#{id}-#{title.parameterize}"
+		slug
 	end
 end
