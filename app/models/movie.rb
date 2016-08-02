@@ -20,6 +20,8 @@ class Movie < ActiveRecord::Base
 	has_many :characterizations, dependent: :destroy
 	has_many :genres, through: :characterizations
 
+	before_validations :generate_slug
+
 	scope :released, -> { where("released_on <= ?", Time.now).order(released_on: :desc) }
 	scope :hits, -> { released.where("total_gross >= 300000000").order(total_gross: :desc) }
 	scope :flops, -> { released.where("total_gross <= 50000000").order(total_gross: :asc) }
