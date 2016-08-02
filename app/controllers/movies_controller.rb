@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 			@movies = Movie.hits
 		else
 			@movies = Movie.released
+		end
 	end
 
 	def show
