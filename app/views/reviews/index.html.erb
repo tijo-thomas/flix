@@ -1,5 +1,5 @@
 <header id="content-header">
-	<h1>Reviews for <%= link_to(@movie.title, movie_path(@movie.id)) %></h1>
+	<h1>Reviews for <%= link_to(@movie.title, movie_path(@movie)) %></h1>
 </header>
 <ol id="reviews">
 	<% @reviews.each do |review| %>
