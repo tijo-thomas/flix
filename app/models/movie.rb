@@ -1,6 +1,8 @@
 class Movie < ActiveRecord::Base
 
 	validates :title, :released_on, :duration, presence: true
+	validates :title, presence: true, uniqueness: true
+	validates :slug, uniqueness: true
 	validates :description, length: { minimum: 25 }
 	validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
 	validates :image_file_name, allow_blank: true, format: {
