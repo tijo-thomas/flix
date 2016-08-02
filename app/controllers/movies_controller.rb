@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
 	def update
 		if @movie.update(movie_params)
 			flash[:notice] = "Movie successfully updated!"
-			redirect_to movie_path(@movie.id) # This redirects to the show action using a named route.
+			redirect_to movie_path(@movie) # This redirects to the show action using a named route.
 		else
 			render :edit
 		end
@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
 		@movie = Movie.new(movie_params)
 		if @movie.save
 			flash[:notice] = "Movie successfully created!"
-			redirect_to movie_path(@movie.id)
+			redirect_to movie_path(@movie)
 		else
 			render :new
 		end
