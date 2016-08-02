@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
 
 	def create
 		@movie.favorites.create(user: current_user)
-		redirect_to movie_path(@movie.id), notice: "Thanks for fav'ing!"
+		redirect_to movie_path(@movie), notice: "Thanks for fav'ing!"
 	end
 
 	# Finds the favorite in the favorites array of the
@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
 		favorite = current_user.favorites.find(params[:id])
 		favorite.destroy
 
-		redirect_to movie_path(@movie.id), notice: "Sorry you unfaved it!"
+		redirect_to movie_path(@movie), notice: "Sorry you unfaved it!"
 	end
 
 
