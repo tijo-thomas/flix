@@ -62,4 +62,11 @@ class Movie < ActiveRecord::Base
 	def to_param
 		slug
 	end
+
+	# If the value of self.slug is undefined, nil, or false,
+	# evaluate 'title.parameterize' and set self.slug to that
+	# value, but only if there is a title.
+	def generate_slug
+		self.slug ||= title.parameterize if title
+	end
 end
