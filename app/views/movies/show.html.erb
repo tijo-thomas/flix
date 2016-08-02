@@ -66,7 +66,7 @@
 
   <h3>Reviews</h3>
   <p>
-    <%= link_to(pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie.id)) %>
+    <%= link_to(pluralize(@movie.reviews.size, "review"), movie_reviews_path(@movie)) %>
   </p>
   <!-- Checks to see if there are an recent_reviews and if yes, lists 2 most recent. -->
   <% if @movie.recent_reviews.any? %> 
